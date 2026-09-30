@@ -28,6 +28,11 @@
     --color-onshore-ink: #164b70;
     --color-offshore-surface: #fce4ec;
     --color-offshore-ink: #7b1736;
+    --color-brand-tint: #f8e6ea;
+    --color-accent-tint: #e3f0ee;
+    --radius-sm: 0.25rem;
+    --radius-lg: 0.5rem;
+    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
 *,
@@ -62,6 +67,8 @@ h4 {
     text-wrap: pretty;
 }
 
+h2 { margin-bottom: 0.75rem; }
+
 h1 { font-size: 2rem; }
 h2 { font-size: 1.75rem; }
 h3 { font-size: 1.5rem; }
@@ -76,7 +83,9 @@ h4 { font-size: 1.25rem; }
     margin-bottom: 1.25rem;
     padding: 1.25rem;
     border: 1px solid var(--color-soft-border);
+    border-radius: var(--radius-lg);
     background: var(--color-surface);
+    box-shadow: var(--shadow-card);
 }
 
 .form-group {
@@ -96,7 +105,7 @@ select {
     min-height: 2.75rem;
     padding: 0.5rem;
     border: 1px solid var(--color-border);
-    border-radius: 0.25rem;
+    border-radius: var(--radius-sm);
     color: var(--color-ink);
     background: var(--color-surface);
     font: inherit;
@@ -152,7 +161,7 @@ input[type="checkbox"] {
     gap: 0.5rem;
     padding: 0.625rem 1rem;
     border: 0;
-    border-radius: 0.25rem;
+    border-radius: var(--radius-sm);
     color: var(--color-surface);
     font: inherit;
     font-weight: 700;
@@ -207,6 +216,7 @@ input[type="checkbox"] {
     margin-bottom: 1rem;
     padding: 1rem;
     border: 1px solid var(--color-soft-border);
+    border-radius: var(--radius-lg);
     background: var(--color-page-soft);
 }
 
@@ -232,6 +242,7 @@ input[type="checkbox"] {
     margin: 1.25rem 0;
     padding: 1rem;
     border: 1px solid var(--color-soft-border);
+    border-radius: var(--radius-lg);
     background: var(--color-page);
 }
 
@@ -247,8 +258,18 @@ input[type="checkbox"] {
 .result-row:last-child { border-bottom: 0; }
 .result-row dt { font-weight: 700; }
 .result-row dd { margin: 0; text-align: right; overflow-wrap: anywhere; }
-.highlight { color: var(--color-brand); font-weight: 700; }
-.highlight-green { color: var(--color-accent); font-weight: 700; }
+
+.highlight,
+.highlight-green {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.highlight { color: var(--color-brand); background: var(--color-brand-tint); }
+.highlight-green { color: var(--color-accent); background: var(--color-accent-tint); }
 .negative { color: var(--color-danger); font-weight: 700; }
 
 .table-container {
@@ -276,7 +297,8 @@ input[type="checkbox"] {
 .result-table th { background: var(--color-surface-muted); }
 .result-table td.amount,
 .result-table td.tax { text-align: right; overflow-wrap: anywhere; }
-.result-table tr.total { font-weight: 700; }
+.result-table tbody tr:nth-child(even) td { background: var(--color-surface-subtle); }
+.result-table tr.total td { background: var(--color-surface-muted); font-weight: 700; }
 
 .table-container:focus-visible {
     outline: 3px solid var(--color-focus);
@@ -319,6 +341,7 @@ input[type="checkbox"] {
     flex: 0 0 1.875rem;
     color: var(--color-surface);
     background: var(--color-brand);
+    border-radius: 50%;
     font-weight: 700;
 }
 
@@ -326,6 +349,7 @@ input[type="checkbox"] {
     display: inline-block;
     padding: 0.25rem 0.5rem;
     margin-left: 0.5rem;
+    border-radius: 999px;
     font-size: 0.8em;
     font-weight: 700;
 }
@@ -347,6 +371,7 @@ input[type="checkbox"] {
     place-items: center;
     color: var(--color-accent);
     background: var(--color-surface);
+    border-radius: 50%;
     font-weight: 700;
 }
 
@@ -356,6 +381,7 @@ input[type="checkbox"] {
     margin-left: 0.625rem;
     color: var(--color-surface);
     background: var(--color-brand);
+    border-radius: 999px;
     font-size: 0.9em;
     font-weight: 700;
 }
@@ -364,6 +390,7 @@ input[type="checkbox"] {
     padding: 1rem;
     margin: 1rem 0;
     border: 1px solid var(--color-warning-border);
+    border-radius: var(--radius-lg);
     color: var(--color-warning-ink);
     background: var(--color-warning-surface);
 }
@@ -372,6 +399,7 @@ input[type="checkbox"] {
     padding: 0.75rem 1rem;
     margin: 1rem 0;
     border: 2px solid var(--color-danger);
+    border-radius: var(--radius-sm);
     color: var(--color-danger-ink);
     background: var(--color-surface);
 }

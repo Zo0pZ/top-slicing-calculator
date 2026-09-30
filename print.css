@@ -84,7 +84,26 @@
     }
   
     .counter-badge, .tax-year-dropdown { display: none; }
-  
+
+    .container-card,
+    .card,
+    .multi-gain-item,
+    .info-card,
+    .warning-box {
+      box-shadow: none; /* Shadows don't print reliably; rely on the border instead */
+    }
+
+    .result-table tbody tr:nth-child(even) td,
+    .result-table tr.total td {
+      background: none; /* Avoid relying on background colour in printed output */
+    }
+
+    .highlight,
+    .highlight-green {
+      background: none;
+      padding: 0;
+    }
+
     /* Adjust page margins as needed */
     @page {
       margin: 2cm; /* Adjust as needed */
