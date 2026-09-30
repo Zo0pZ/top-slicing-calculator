@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Slicing Relief Calculator for Investment Bonds</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="print.css" media="print">
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to calculator</a>
+    <header class="page-header no-print">
+        <h1>Calculating Top Slicing Relief on a Chargeable Event Gain <span class="tax-year">2025/26</span></h1>
+        <p>This calculator estimates top slicing relief on chargeable event gains from UK investment bonds.</p>
+    </header>
+    <main id="main-content">
+    <section class="container-card no-print" aria-labelledby="income-heading">
+        <h2 id="income-heading">Income Details</h2>
+        <form id="calculator-form" novalidate>
+        <div class="two-column-grid">
+            <div class="form-group">
+                <label for="tax-year-select">Tax Year</label>
+                <select id="tax-year-select" class="tax-year-dropdown">
+                    <option value="2025" selected>2025/26</option>
+                    <option value="2024">2024/25</option>
+                    <option value="2023">2023/24</option>
+                    <option value="2022">2022/23</option>
+                    <option value="2021">2021/22</option>
+                    <option value="2020">2020/21</option>
+                    <option value="2019">2019/20</option>
+                    <option value="2018">2018/19</option>
+                    <option value="2017">2017/18</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="employment">Employment Income (£)</label>
+                <input class="calculation-input" type="number" id="employment" value="45000" min="0" step="0.01">
+            </div>
+        </div>
+        <div class="two-column-grid">
+            <div class="form-group">
+                <label for="pension">Pension Income (£)</label>
+                <input class="calculation-input" type="number" id="pension" value="0" min="0" step="0.01">
+            </div>
+            <div class="form-group">
+                <label for="other-income">Other Non-Savings Income (£)</label>
+                <input class="calculation-input" type="number" id="other-income" value="0" min="0" step="0.01">
+            </div>
+        </div>
+        <div class="two-column-grid">
+            <div class="form-group">
+                <label for="savings-income">Savings Income (£)</label>
+                <input class="calculation-input" type="number" id="savings-income" value="0" min="0" step="0.01">
+            </div>
+            <div class="form-group">
+                <label for="dividend-income">Dividend Income (£)</label>
+                <input class="calculation-input" type="number" id="dividend-income" value="0" min="0" step="0.01">
+            </div>
+        </div>
+        <h3>Income tax reliefs affecting Adjusted Net Income</h3>
+        <p id="ani-relief-help">Enter gross amounts. For relief-at-source pension payments, include basic-rate relief; for Gift Aid, enter the donation grossed up by 25%. Exclude salary-sacrifice or net-pay pension contributions already reflected in taxable pay. Other Adjusted Net Income adjustments are not modelled.</p>
+        <div class="two-column-grid">
+            <div class="form-group">
+                <label for="gross-pension-contributions">Gross relief-at-source pension contributions (£)</label>
+                <input class="calculation-input" type="number" id="gross-pension-contributions" value="0" min="0" step="0.01" required aria-describedby="ani-relief-help">
+            </div>
+            <div class="form-group">
+                <label for="gross-gift-aid-donations">Grossed-up Gift Aid donations (£)</label>
+                <input class="calculation-input" type="number" id="gross-gift-aid-donations" value="0" min="0" step="0.01" required aria-describedby="ani-relief-help">
+            </div>
+        </div>
+    
+        
+        <h2>Chargeable Event Gains</h2>
+        <p>Add as many chargeable event gains as you need below:</p>
+        <p id="years-help">Use the complete-years figure shown on the chargeable event certificate. The calculator does not derive N from policy dates, earlier events, or residence history.</p>
+        <p id="gain-help">Enter the chargeable event gain attributable to the person being assessed. For jointly owned bonds, check the chargeable event certificate and enter that person's amount only.</p>
+        <p>Enter non-negative gains only. Do not deduct capital losses here; deficiency relief is outside this calculator.</p>
+        
+        <div id="gains-container">
+            <fieldset class="multi-gain-item" id="gain-1">
+                <legend>Chargeable Event Gain #1</legend>
+                <button type="button" class="button remove-button no-print" data-remove-gain="1" aria-label="Remove chargeable event gain 1" disabled>Remove</button>
+                <div class="grid">
+                    <div class="form-group">
+                        <label for="gain-amount-1">Gain Amount (£)</label>
+                        <input class="calculation-input" type="number" id="gain-amount-1" value="0" min="0" step="0.01" required aria-describedby="gain-help">
+                    </div>
+                    <div class="form-group">
+                        <label for="gain-years-1">Complete Years</label>
+                        <input class="calculation-input" type="number" id="gain-years-1" value="1" min="1" step="1" required aria-describedby="years-help">
+                    </div>
+                    <div class="form-group">
+                        <label for="gain-type-1">Bond Type</label>
+                        <select class="calculation-input" id="gain-type-1">
+                            <option value="onshore" selected>Onshore</option>
+                            <option value="offshore">Offshore</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        
+        <!-- ADD BOND BUTTON WITH COUNTER -->
+        <button id="add-gain-button" type="button" class="button button-secondary big-add-button no-print">
+            Add another chargeable event gain
+            <span id="gains-counter" class="counter-badge">1</span>
+        </button>
+    
+        <section class="points-to-remember" aria-labelledby="points-heading">
+            <h3 id="points-heading">Points to remember</h3>
+            <ul>
+                <li>Gains made under investment bonds, whether onshore or offshore, are classed as savings income.</li>
+                <li>Top slicing relief is a tax reducer and is available where a chargeable event gain (CEG) would cause a taxpayer to pay tax at a rate higher than if the CEG wasn't included in their tax calculation for that tax year.</li>
+                <li>In some circumstances, CEGs can be set against any unused:
+                    <ul>
+                        <li>Personal Allowance (PA)</li>
+                        <li>Starting Rate for Savings Band (SRSB) of up to £5,000 depending on other income</li>
+                        <li>Personal Savings Allowance (PSA) of up to £1,000 depending on income tax band</li>
+                    </ul>
+                </li>
+                <li>Top slicing relief is not available where trustees or personal representatives are assessed for a chargeable gain.</li>
+                <li>When terminating a bond, the number of complete relevant years is always back to the start of the bond. Where an excess withdrawal has been taken, this can change.</li>
+                <li>For jointly owned policies, use the gain attributable to the person being assessed. Do not enter the same full gain for each owner.</li>
+                <li>Negative gains and capital-loss deductions are not supported. Check possible deficiency relief separately.</li>
+            </ul>
+        </section>
+        
+        <div class="form-group form-check">
+            <input type="checkbox" id="show-details" checked aria-controls="detailed-calculations">
+            <label class="checkbox-label" for="show-details">Show detailed calculations</label>
+        </div>
+
+        <p id="calculation-error" class="form-error" role="alert" hidden></p>
+        <button id="calculate-button" type="submit" class="button button-primary calculate-button">
+            Calculate Top Slicing Relief
+        </button>
+        </form>
+    </section>
+    <p id="calculation-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+    <section id="results-container" class="hidden results-section" aria-labelledby="results-heading">
+        <div class="print-header print-only">
+            <div class="print-header-left">
+                <h1>Top Slicing Relief Calculation Report</h1>
+                <p>Tax Year: <span id="report-tax-year">2025/26</span></p>
+                <p>Generated on: <span id="report-date"></span></p>
+            </div>
+        </div>
+        
+        <div class="results-panel">
+            <h2 id="results-heading">Top Slicing Relief Calculation Results</h2>
+            
+            <div id="results-summary">
+                <!-- Summary results will be inserted here -->
+            </div>
+            
+            <div class="divider"></div>
+            
+            <section id="tax-bands-section" aria-labelledby="tax-bands-heading">
+                <h3 id="tax-bands-heading">Chargeable Event Gain Tax Bands</h3>
+                <div id="tax-bands-results">
+                    <!-- Tax bands table will be inserted here -->
+                </div>
+            </section>
+            
+            <div id="detailed-calculations" class="hidden">
+                <div class="divider"></div>
+                <h3>Five-Step Calculation Process</h3>
+                
+                <div id="step1-results" class="calculation-step">
+                    <!-- Step 1 results will be inserted here -->
+                </div>
+                
+                <div id="step2-results" class="calculation-step">
+                    <!-- Step 2 results will be inserted here -->
+                </div>
+                
+                <div id="step3-results" class="calculation-step">
+                    <!-- Step 3 results will be inserted here -->
+                </div>
+                
+                <div id="step4-results" class="calculation-step">
+                    <!-- Step 4 results will be inserted here -->
+                </div>
+                
+                <div id="step5-results" class="calculation-step">
+                    <!-- Step 5 results will be inserted here -->
+                </div>
+            </div>
+            
+            <section id="individual-results" class="hidden" aria-labelledby="individual-results-heading">
+                <div class="divider"></div>
+                <h3 id="individual-results-heading">Individual Chargeable Event Gains</h3>
+                <div id="individual-results-container">
+                    <!-- Individual results will be inserted here -->
+                </div>
+            </section>
+        </div>
+        
+        <div class="print-footer print-only">
+            <p>This calculation is based on the tax rates and rules for the <span id="report-footer-tax-year">2025/26</span> tax year.</p>
+            <p>Top slicing relief is a tax reducer and is available where a chargeable event gain would cause a taxpayer to pay tax at a rate higher than if the CEG wasn't included in their tax calculation for that tax year.</p>
+            <p>This tool provides estimates based on standard HMRC Top Slicing Relief rules. It does not constitute formal financial or tax advice. For complex tax affairs, consult a qualified CTA (Chartered Tax Adviser).</p>
+        </div>
+        <button id="print-button" type="button" class="button button-dark no-print">Save Results as PDF</button>
+        <button id="back-to-top" type="button" class="button button-dark no-print">Back to top</button>
+    </section>
+    </main>
+    <script>
+        try { new Function('null?.a ?? 1'); } catch (e) {
+            document.write('<p class="warning-box">This calculator needs a modern browser (Chrome, Edge, Firefox, or Safari updated in the last few years). Please update your browser to use it.</p>');
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

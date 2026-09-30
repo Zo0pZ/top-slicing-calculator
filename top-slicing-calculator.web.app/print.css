@@ -1,0 +1,93 @@
+/* print.css */
+
+@media print {
+    body {
+      font-family: sans-serif; /* Choose a suitable sans-serif font */
+      background-color: white; /* Ensure a white background for printing */
+      color: black; /* Ensure black text for printing */
+      max-width: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hidden { display: none !important; }
+    .no-print, #back-to-top { display: none !important; }
+    .print-only { display: block !important; }
+  
+    .container-card,
+    .card {
+      page-break-inside: avoid; /* Prevent sections from breaking across pages */
+      border: 1px solid #ccc; /* Add a light border for better readability */
+      margin-bottom: 2cm; /* Add some space between cards */
+      padding: 1cm; /* Add some padding within each card */
+    }
+  
+    .two-column-grid {
+      display: block; /* Stack columns for printing */
+    }
+  
+    .two-column-grid > * {
+      width: 100%; /* Full width for each element */
+      margin-bottom: 1cm; /* Add space between elements */
+    }
+  
+    .grid {
+      display: block; /* Stack grid elements for printing */
+    }
+  
+    .grid > * {
+      width: 100%; /* Full width for each element */
+      margin-bottom: 0.5cm; /* Add space between elements */
+    }
+  
+  
+    .result-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+  
+    .result-table th,
+    .result-table td {
+      border: 1px solid #ccc;
+      padding: 0.5cm 0.3cm; /* Adjust padding as needed */
+      text-align: left;
+    }
+  
+    .result-table th {
+      font-weight: bold;
+    }
+  
+    .result-table .amount {
+      text-align: right;
+    }
+  
+    .table-container {
+      overflow: visible;
+    }
+  
+    .print-header {
+      display: block; /* Show print header */
+      text-align: center;
+      margin-bottom: 2cm;
+    }
+  
+    .print-header-left{
+      text-align: left;
+    }
+  
+    .print-footer {
+      display: block; /* Show print footer */
+      margin-top: 2cm;
+      text-align: center;
+      font-style: italic;
+    }
+  
+    .counter-badge, .tax-year-dropdown { display: none; }
+  
+    /* Adjust page margins as needed */
+    @page {
+      margin: 2cm; /* Adjust as needed */
+    }
+  }
+  
